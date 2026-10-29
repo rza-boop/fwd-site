@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>whodafuccisfrank?</title>
+<meta name="description" content="he probably hustled with ya dad...">
+<link rel="icon" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,800;1,800&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0B0B; --paper:#FFFFFF; --cyan:#04EEF3; --peach:#FCCB70; --red:#F50000; --olive:#9A934E;
+  --dim:#B9B9B9; --line:#2A2A2A;
+  --title:"Barlow Condensed","Futura",sans-serif; --osd:"VT323","Andale Mono",monospace;
+  --gut:clamp(16px,4vw,56px);
+  color-scheme:dark;
+}
+/* The VHS world is a black screen in both themes. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#0B0B0B;--paper:#FFFFFF}}
+:root[data-theme="dark"]{--ink:#0B0B0B;--paper:#FFFFFF}
+
+*{box-sizing:border-box;margin:0}
+html{background:var(--ink);scrollbar-color:var(--red) var(--ink)}
+body{background:var(--ink);color:var(--paper);font:500 1.25rem/1.5 var(--title);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cyan);color:var(--ink)}
+::-webkit-scrollbar{width:12px}::-webkit-scrollbar-track{background:var(--ink)}::-webkit-scrollbar-thumb{background:var(--red)}
+a{color:inherit;text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+img{display:block;max-width:100%}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.28) 0 1.5px,transparent 1.5px 4px)}
+.boot{animation:settle .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes settle{0%{filter:blur(3px);transform:translateX(-6px)}60%{transform:translateX(3px)}100%{filter:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.boot{animation:none}}
+
+.wrap{max-width:1000px;margin:0 auto;padding:0 var(--gut)}
+.osd{font-family:var(--osd);font-size:1.6rem;line-height:1;letter-spacing:.04em;text-shadow:2px 2px 0 #000}
+.chroma{text-shadow:-.035em 0 var(--red),.035em 0 var(--cyan)}
+.stripes{display:grid;gap:5px}
+.stripes i{display:block;height:12px}
+.stripes i:nth-child(1){background:var(--cyan)}.stripes i:nth-child(2){background:var(--peach)}
+.stripes i:nth-child(3){background:var(--red)}.stripes i:nth-child(4){background:var(--olive)}
+
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 0}
+.bar a{font-family:var(--osd);font-size:1.6rem;line-height:1;padding:10px 12px;text-decoration:none;text-shadow:2px 2px 0 #000}
+.bar a:hover{background:var(--paper);color:var(--ink);text-shadow:none}
+
+.intro{padding-top:clamp(48px,8vw,96px);padding-bottom:clamp(40px,6vw,72px)}
+h1{font:italic 800 clamp(3rem,10vw,6rem)/.9 var(--title);letter-spacing:.005em}
+.tag{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--peach);margin-top:16px}
+.intro .stripes{margin:clamp(28px,4vw,40px) 0}
+.intro p.body{max-width:62ch;font-size:clamp(1.25rem,2.2vw,1.45rem);color:#E6E6E6}
+.intro p.body + p.body{margin-top:1em}
+
+.plaques{padding-bottom:clamp(56px,9vw,110px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.screen{background:#000;border:2px solid var(--line);font-family:var(--osd);font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.4}
+.screen .hd{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--c);color:var(--t,var(--ink))}
+.screen ul{list-style:none;padding:10px 16px 14px;display:grid;gap:8px}
+.screen.cyan{--c:var(--cyan)}.screen.peach{--c:var(--peach)}.screen.red{--c:var(--red);--t:var(--paper)}.screen.olive{--c:var(--olive)}
+
+footer{border-top:2px solid var(--line);padding:40px 0 56px}
+.fine{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-top:28px}
+.fine a{font-family:var(--osd);font-size:1.5rem;text-decoration:none}
+.fine a:hover{text-decoration:underline}
+.fine img{width:150px}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="bar">
+    <a href="index.html" class="boot">◀◀ REW</a>
+    <span class="osd">PLAY ▶</span>
+  </div>
+</header>
+
+<main>
+<section class="intro wrap">
+  <h1 class="chroma">whodafuccisfrank?</h1>
+  <p class="tag">he probably hustled with ya dad...</p>
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <p class="body">frank is a shady character &amp; white girls often call him an asshole, but he is well loved in Baltimore.</p>
+  <p class="body">he's been outside since park heights was red &amp; stop snitching was a dvd. he has put it down for this baltimore music thing since the wire. he gives straight deals, ask your OG or ya favorite rapper.</p>
+  <p class="body">frank also procures hardware. have you ever seen a hand grenade? it's weird in person. mostly, though, he works with folks who like to get plaques, such as:</p>
+</section>
+
+<section class="plaques wrap" aria-label="Plaques">
+  <div class="grid">
+    <div class="screen cyan">
+      <div class="hd"><span>PYREX WHIPPA</span><span>P201</span></div>
+      <ul>
+        <li>💿 Costa Rica — Dreamville</li>
+        <li>💿 So Much Fun — Young Thug</li>
+        <li>💿 Revenge of the Dreamers III — Dreamville</li>
+        <li>🏆 Pony — DaBaby</li>
+        <li>🏆 Flex Up — Lil Yachty ft. Future &amp; Playboi Carti</li>
+        <li>🏆 Father of 4 — Offset</li>
+      </ul>
+    </div>
+    <div class="screen peach">
+      <div class="hd"><span>TATE KOBANG</span><span>P202</span></div>
+      <ul>
+        <li>💿💿💿 Mr. Right Now — 21 Savage &amp; Metro Boomin ft. Drake</li>
+        <li>💿💿 Savage Mode II — 21 Savage &amp; Metro Boomin</li>
+        <li>💿💿 Renaissance — Beyoncé 🏅 Grammy winner</li>
+        <li>💿 Red Ruby Da Sleeze — Nicki Minaj</li>
+        <li>💿 Area Codes — Kaliii</li>
+        <li>💿 Pink Friday 2 — Nicki Minaj (feat. on "RNB" w/ Lil Wayne)</li>
+        <li>🏆 Virgo's Groove — Beyoncé</li>
+        <li>🏆 Do We Have A Problem? — Nicki Minaj &amp; Lil Baby</li>
+        <li>🏆 Gang Baby — NLE Choppa</li>
+      </ul>
+    </div>
+    <div class="screen red">
+      <div class="hd"><span>SHORDIE SHORDIE</span><span>P203</span></div>
+      <ul>
+        <li>💿💿💿 Betchua (Bitchuary)</li>
+        <li>🏆 Bonnie &amp; Clyde</li>
+        <li>🏆 Save a Little</li>
+        <li>🏆 Doctors</li>
+        <li>🏆 Both Sides ft. Shoreline Mafia</li>
+      </ul>
+    </div>
+    <div class="screen olive">
+      <div class="hd"><span>TIP12LVE</span><span>P204</span></div>
+      <ul>
+        <li>🏆 Bonnie &amp; Clyde — w/ Shordie Shordie</li>
+        <li>🏆 Save a Little — w/ Shordie Shordie</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="fine">
+      <a href="index.html#tapes">◀◀ BACK TO THE GOODS</a>
+      <img src="fwd-letters-outline-white.svg" alt="FWD">
+    </div>
+  </div>
+</footer>
+</body>
+</html>

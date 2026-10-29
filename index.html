@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>frankwhitedealsdope</title>
+<meta name="description" content="Frank White Deals Dope, and he knows the good stuff.">
+<meta property="og:title" content="frankwhitedealsdope">
+<meta property="og:description" content="Frank White Deals Dope, and he knows the good stuff.">
+<meta property="og:image" content="https://www.frankwhitedealsdope.com/og.png">
+<meta property="og:url" content="https://www.frankwhitedealsdope.com/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,800;1,800&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0B0B; --paper:#FFFFFF; --cyan:#04EEF3; --peach:#FCCB70; --red:#F50000; --olive:#9A934E;
+  --dim:#B9B9B9; --line:#2A2A2A; --panel:#141414;
+  --title:"Barlow Condensed","Futura",sans-serif; --osd:"VT323","Andale Mono",monospace;
+  --gut:clamp(16px,4vw,56px);
+  color-scheme:dark;
+}
+/* The VHS world is a black screen in both themes. */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#0B0B0B;--paper:#FFFFFF}}
+:root[data-theme="dark"]{--ink:#0B0B0B;--paper:#FFFFFF}
+
+*{box-sizing:border-box;margin:0}
+html{background:var(--ink);scrollbar-color:var(--red) var(--ink)}
+body{background:var(--ink);color:var(--paper);font:500 1.125rem/1.5 var(--title);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cyan);color:var(--ink)}
+::-webkit-scrollbar{width:12px}::-webkit-scrollbar-track{background:var(--ink)}::-webkit-scrollbar-thumb{background:var(--red)}
+a{color:inherit;text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+img{display:block;max-width:100%}
+
+/* screen texture: scanlines + one rolling tracking band on load */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:repeating-linear-gradient(to bottom,rgba(0,0,0,.28) 0 1.5px,transparent 1.5px 4px)}
+.track{position:fixed;left:0;right:0;top:-12vh;height:9vh;z-index:51;pointer-events:none;opacity:.5;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='80'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9 0.02' numOctaves='2' seed='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='600' height='80' filter='url(%23n)'/></svg>");
+  background-size:600px 100%;mix-blend-mode:screen;animation:roll 1.6s cubic-bezier(.16,1,.3,1) .15s forwards}
+@keyframes roll{to{top:112vh}}
+.boot{animation:settle .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes settle{0%{filter:blur(3px);transform:translateX(-6px)}60%{transform:translateX(3px)}100%{filter:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.track{display:none}.boot{animation:none}.caret{animation:none}}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+.osd{font-family:var(--osd);font-size:1.6rem;line-height:1;letter-spacing:.04em;text-shadow:2px 2px 0 #000;font-variant-numeric:tabular-nums}
+.chroma{text-shadow:-.035em 0 var(--red),.035em 0 var(--cyan)}
+.stripes{display:grid;gap:5px}
+.stripes i{display:block;height:12px}
+.stripes i:nth-child(1){background:var(--cyan)}.stripes i:nth-child(2){background:var(--peach)}
+.stripes i:nth-child(3){background:var(--red)}.stripes i:nth-child(4){background:var(--olive)}
+.tri{display:inline-block;width:.62em;height:.7em;vertical-align:-.02em}
+h2{font:italic 800 clamp(2.4rem,6vw,4.25rem)/.92 var(--title);text-transform:uppercase;letter-spacing:.005em;text-wrap:balance}
+
+/* top bar = VCR menu */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0 0}
+.bar .osd{font-size:1.75rem}
+nav ul{list-style:none;display:flex;gap:4px;padding:0;flex-wrap:wrap;justify-content:flex-end}
+nav a{display:block;font-family:var(--osd);font-size:1.5rem;line-height:1;padding:10px 12px;text-decoration:none;text-shadow:2px 2px 0 #000}
+nav a:hover,nav a[aria-current]{background:var(--paper);color:var(--ink);text-shadow:none}
+
+/* hero */
+.hero{padding:clamp(40px,8vh,96px) 0 clamp(48px,9vh,110px)}
+.hero .mark{width:min(600px,100%);margin:0 auto}
+.hero .stripes{width:min(600px,100%);margin:clamp(14px,2.5vw,26px) auto 0}
+.hero h1{font:italic 800 clamp(3.4rem,10.5vw,6rem)/.9 var(--title);text-transform:uppercase;text-align:center;margin-top:clamp(36px,6vw,64px);letter-spacing:.01em}
+.hero .sub{text-align:center;font-size:clamp(1.25rem,2.4vw,1.6rem);color:var(--peach);margin-top:14px;text-wrap:balance}
+
+.join{max-width:720px;margin:clamp(28px,4vw,40px) auto 0;border:2px solid var(--paper);background:var(--ink)}
+.join label{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--paper);color:var(--ink);font-family:var(--osd);font-size:1.6rem;line-height:1}
+.join .row{display:flex}
+.join input{flex:1;min-width:0;background:transparent;border:0;color:var(--paper);font-family:var(--osd);font-size:1.75rem;padding:16px;caret-color:var(--cyan)}
+.join input::placeholder{color:#9A9A9A}
+.join input:focus{outline:none}
+.join:focus-within{outline:3px solid var(--cyan);outline-offset:3px}
+.join button{border:0;background:var(--red);color:var(--paper);font:italic 800 1.6rem/1 var(--title);text-transform:uppercase;padding:0 26px;cursor:pointer;display:flex;align-items:center;gap:10px;letter-spacing:.04em}
+.join button:hover{background:var(--paper);color:var(--ink)}
+.join button:disabled{opacity:.6;cursor:progress}
+.msg{font-family:var(--osd);font-size:1.4rem;padding:10px 16px;border-top:2px solid var(--line);min-height:1em}
+.msg:empty{display:none}
+.msg.err{color:var(--peach)}.msg.ok{color:var(--cyan)}
+.caret{display:inline-block;width:.55em;height:1em;background:var(--cyan);vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* tape wall */
+.wall{padding:clamp(56px,9vw,110px) 0;border-top:2px solid var(--line)}
+.wall-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.wall-head .osd{color:var(--dim);font-size:1.4rem}
+.shelf{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px;padding-bottom:14px;border-bottom:10px solid #1E1E1E}
+.tape{--c:var(--cyan);flex:1 1 92px;max-width:130px;height:400px;background:var(--c);color:var(--ink);text-decoration:none;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:14px 8px;
+  box-shadow:0 10px 18px -6px rgba(0,0,0,.8);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.tape:hover,.tape:focus-visible{transform:translateY(-22px)}
+.tape img{width:70px}
+.tape .t{writing-mode:vertical-rl;transform:rotate(180deg);font:italic 800 2rem/1 var(--title);text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.tape .a{writing-mode:vertical-rl;transform:rotate(180deg);font:500 1.1rem/1 var(--title);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.tape.long .t{font-size:1.6rem}
+.tape .tag{font-family:var(--osd);font-size:1.2rem;border:2px solid var(--ink);padding:5px 8px}
+.tape.peach{--c:var(--peach)}.tape.red{--c:var(--red)}.tape.olive{--c:var(--olive)}
+.tape.blank{--c:#1A1A1A;color:#8C8C8C;pointer-events:none}
+.tape.blank .tag{border-color:#444}
+
+/* teletext crate */
+.ttx{padding:clamp(56px,9vw,110px) 0;border-top:2px solid var(--line)}
+.screen{margin-top:32px;background:#000;border:2px solid var(--line);font-family:var(--osd);font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.15}
+.screen{--tab:var(--cyan);--tabtext:var(--ink)}
+.screen[data-tab="substacks"]{--tab:var(--olive)}
+.screen[data-tab="videos"]{--tab:var(--red);--tabtext:var(--paper)}
+.screen[data-tab="social"]{--tab:var(--peach)}
+.screen .hd{display:flex;justify-content:space-between;gap:12px;padding:10px 16px;background:var(--tab);color:var(--tabtext);flex-wrap:wrap}
+.screen ul{list-style:none;padding:8px 0;min-height:calc(8 * (1.15em + 20px) + 16px)}
+.screen li a{display:grid;grid-template-columns:4.2ch 1fr auto;gap:1.2ch;padding:10px 16px;text-decoration:none;align-items:baseline}
+.screen li a:hover{background:#1A1A1A}
+.screen .p{color:var(--peach)}
+.screen .lane{text-transform:uppercase;overflow:hidden;white-space:nowrap;text-overflow:clip}
+.screen .lane::after{content:" ...................................................................";color:#555}
+.screen .go{color:var(--cyan)}
+.pager[hidden]{display:none}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 16px 14px;color:var(--dim)}
+.pager button,.screen .ft button{font:inherit;border:0;cursor:pointer;background:none;color:inherit;padding:10px 12px}
+.pager button:hover{color:var(--paper);text-decoration:underline}
+.pager button:disabled{opacity:.35;cursor:default;text-decoration:none}
+.screen .ft{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.screen .ft button{color:var(--ink);padding:12px 8px;position:relative}
+.screen .ft button:nth-child(1){background:var(--cyan)}.screen .ft button:nth-child(2){background:var(--olive)}
+.screen .ft button:nth-child(3){background:var(--red);color:var(--paper)}.screen .ft button:nth-child(4){background:var(--peach)}
+.screen .ft button[aria-selected="false"]{filter:brightness(.72) saturate(.8)}
+.screen .ft button:hover{filter:none}
+.screen .ft button[aria-selected="true"]::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--paper)}
+
+/* sleeve back: send music */
+.send{padding:clamp(56px,9vw,110px) 0;border-top:2px solid var(--line)}
+.sleeve{margin-top:32px;background:var(--paper);color:var(--ink);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.sleeve .side{background:var(--ink);color:var(--paper);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;border:2px solid var(--paper)}
+.sleeve .side p{font-size:1.25rem;max-width:34ch;color:#E6E6E6}
+.sleeve form{padding:clamp(20px,3vw,36px);display:grid;gap:18px}
+.field label{display:block;font:800 1rem/1 var(--title);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
+.field input,.field textarea{width:100%;border:2px solid var(--ink);background:var(--paper);color:var(--ink);font:500 1.2rem/1.3 var(--title);padding:12px;border-radius:0;caret-color:var(--red)}
+.field textarea{min-height:110px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#6B6B6B}
+.field input:focus-visible,.field textarea:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.field .hint{font-size:1rem;color:#4A4A4A;margin-top:4px}
+.field.bad input,.field.bad textarea{border-color:var(--red)}
+.field .e{color:#B00000;font-size:1rem;margin-top:4px;display:none}
+.field.bad .e{display:block}
+.sleeve button{justify-self:start;border:0;background:var(--ink);color:var(--paper);font:italic 800 1.6rem/1 var(--title);text-transform:uppercase;padding:16px 28px;cursor:pointer;letter-spacing:.04em}
+.sleeve button:hover{background:var(--red)}
+.sleeve .done{font-family:var(--osd);font-size:1.5rem;color:var(--ink)}
+
+/* footer = fine print */
+footer{border-top:2px solid var(--line);padding:40px 0 56px}
+.fine{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;margin-top:28px}
+.fine ul{list-style:none;padding:0;display:flex;gap:6px 22px;flex-wrap:wrap;font-family:var(--osd);font-size:1.4rem}
+.fine img{width:150px}
+.legal{font-size:.95rem;color:#9A9A9A;margin-top:22px;letter-spacing:.06em;text-transform:uppercase}
+
+@media (max-width:760px){
+  .bar{flex-direction:column;align-items:flex-start}
+  nav ul{justify-content:flex-start}
+  .sleeve{grid-template-columns:1fr}
+  /* phones: tapes lie flat, a stack instead of a shelf */
+  .shelf{flex-direction:column;gap:6px}
+  .tape{flex:none;max-width:none;width:100%;height:auto;flex-direction:row;padding:12px 14px;gap:12px;justify-content:flex-start}
+  .tape:hover,.tape:focus-visible{transform:translateX(12px)}
+  .tape .t,.tape .a{writing-mode:horizontal-tb;transform:none}
+  .tape .t,.tape.long .t{font-size:1.5rem;flex:1;white-space:normal;line-height:.95}
+  .tape .a{font-size:.95rem}
+  .tape img{width:48px;flex:none}
+  .tape.blank{padding:12px 14px}
+  .join .row{flex-direction:column}
+  .join button{padding:16px;justify-content:center}
+  .screen .ft{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="track" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="play" viewBox="0 0 10 12"><path d="M0 0L10 6L0 12Z" fill="currentColor"/></symbol>
+  <symbol id="ff" viewBox="0 0 18 12"><path d="M0 0L9 6L0 12Z M9 0L18 6L9 12Z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="wrap">
+  <div class="bar">
+    <div class="osd boot">PLAY <svg class="tri"><use href="#play"/></svg> <span id="tc">00:00:00</span></div>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#tapes">THE GOODS</a></li>
+        <li><a href="#links">SNEAKY LINKS</a></li>
+        <li><a href="#send">HIT MY PAGER</a></li>
+        <li><a href="#join" aria-current="true">JOIN</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero wrap" id="join">
+  <img class="mark boot" src="fwd-mark-outline-white.svg" alt="FWD, frankwhitedealsdope">
+  <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <h1 class="chroma">Frank White Deals Dope</h1>
+  <p class="sub">and he knows the good stuff.</p>
+
+  <form class="join" id="joinForm" novalidate>
+    <label for="email"><svg class="tri"><use href="#play"/></svg> JOIN THE LIST</label>
+    <div class="row">
+      <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="your@email.com" required>
+      <button type="submit">Join <svg class="tri"><use href="#ff"/></svg></button>
+    </div>
+    <p class="msg" id="joinMsg" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<section class="wall" id="tapes" aria-labelledby="tapesH">
+  <div class="wrap">
+    <div class="wall-head">
+      <h2 id="tapesH" class="chroma">The Goods</h2>
+      <p class="osd">LATEST · PICK A TAPE</p>
+    </div>
+    <div class="shelf">
+      <a class="tape" href="https://r3x.world/" target="_blank" rel="noopener"><img src="fwd-letters-outline-black.svg" alt=""><span class="t">R3X World</span><span class="a">r3x.world</span><span class="tag">SP</span></a>
+      <a class="tape peach long" href="https://alilbitloudernow.substack.com/" target="_blank" rel="noopener"><img src="fwd-letters-outline-black.svg" alt=""><span class="t">a lil bit louder now</span><span class="a">substack</span><span class="tag">LP</span></a>
+      <a class="tape red" href="https://moneysexnerd.substack.com/" target="_blank" rel="noopener"><img src="fwd-letters-outline-black.svg" alt=""><span class="t">moneysexnerd</span><span class="a">substack</span><span class="tag">LP</span></a>
+      <a class="tape olive long" href="https://www.youtube.com/@frankwhitedealsdope" target="_blank" rel="noopener"><img src="fwd-letters-outline-black.svg" alt=""><span class="t">frankwhitedealsdope</span><span class="a">youtube</span><span class="tag">SP</span></a>
+      <a class="tape long" href="about.html"><img src="fwd-letters-outline-black.svg" alt=""><span class="t">whodafuccisfrank?</span><span class="a">about</span><span class="tag">EP</span></a>
+      <div class="tape blank"><span></span><span class="t">ndigocartel</span><span class="a">coming soon</span><span class="tag">T-120</span></div>
+      <div class="tape blank long"><span></span><span class="t">Scales Equity</span><span class="a">coming soon</span><span class="tag">T-120</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ttx" id="links" aria-labelledby="linksH">
+  <div class="wrap">
+    <h2 id="linksH" class="chroma">Sneaky Links</h2>
+    <div class="screen" data-tab="playlists">
+      <div class="hd"><span id="ttxTitle">NDIGOCARTEL PLAYLISTS</span><span>UPDATED OCT 29 2026</span></div>
+      <ul id="ttxList" role="tabpanel" aria-labelledby="tab-playlists"></ul>
+      <div class="pager" id="ttxPager" hidden>
+        <button type="button" data-step="-1" aria-label="Previous page">◀ PREV</button>
+        <span id="ttxPage" aria-live="polite">PAGE 1/1</span>
+        <button type="button" data-step="1" aria-label="Next page">NEXT ▶</button>
+      </div>
+      <div class="ft" role="tablist" aria-label="Link pages">
+        <button type="button" role="tab" id="tab-playlists" data-tab="playlists" aria-selected="true">PLAYLISTS</button>
+        <button type="button" role="tab" id="tab-substacks" data-tab="substacks" aria-selected="false">SUBSTACKS</button>
+        <button type="button" role="tab" id="tab-videos" data-tab="videos" aria-selected="false">VIDEOS</button>
+        <button type="button" role="tab" id="tab-social" data-tab="social" aria-selected="false">SOCIAL</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="send" id="send" aria-labelledby="sendH">
+  <div class="wrap">
+    <h2 id="sendH" class="chroma">Hit my pager</h2>
+    <div class="sleeve">
+      <div class="side">
+        <p>reach out &amp; state your business</p>
+        <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <form id="sendForm" novalidate>
+        <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required><p class="e">Add your name.</p></div>
+        <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea><p class="e">Add a message.</p></div>
+        <div class="field"><label for="contact">Contact</label><input id="contact" name="contact" type="email" autocomplete="email" inputmode="email" required placeholder="you@email.com"><p class="e">Enter a valid email address.</p></div>
+        <button type="submit">Connect</button>
+        <p class="done" id="sendMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="fine">
+      <ul>
+        <li><a href="https://instagram.com/frankwhitedealsdope">IG @frankwhitedealsdope</a></li>
+        <li><a href="https://www.tiktok.com/@frankwhitedealsdope">TIKTOK</a></li>
+        <li><a href="https://x.com/frankwhitedeals">X @frankwhitedeals</a></li>
+        <li><a href="https://www.youtube.com/@frankwhitedealsdope">YOUTUBE</a></li>
+      </ul>
+      <img src="fwd-letters-outline-white.svg" alt="FWD">
+    </div>
+    <p class="legal">© frankwhitedealsdope · Baltimore</p>
+  </div>
+</footer>
+
+<script>
+// Sneaky Links: four teletext pages, switched by the colour keys
+const SP = "https://open.spotify.com/playlist/";
+const LINKS = {
+  playlists: {title: "NDIGOCARTEL PLAYLISTS", start: 101, items: [
+    ["Sigilkore 2026","4YfcuwSJ8rYWaea3uVddCs"],["Sad Rap 2026","2Gt5QwpaDN1vvPhu19FfnV"],["Amapiano 2026","4Qqf2WDSExkdcffO3WgMni"],
+    ["Road Trip Organic House 2026","7iVyfeh2jbIefu5RkK7bQp"],["Gaming & Gym Party 2026","4iNKocY0W64OJokWO8L2VM"],["Sax House 2026","096vV9XUZK8rnXli6NjsTp"],
+    ["Restaurant Music 2026","4vFObsPOQ04tzB56G6DyX7"],["Lofi 2026","5rNfszBOyaGXuN4orhFaOZ"],["Lofi Study Music 2026","2yUADRlpkg9qUGTEhpl8YR"],
+    ["Japanese Rap 2026","1kqsxyQtPNfEXmhhGeyOy2"],["Instrumental Covers 2026","1URxgPoWGqIeHOfWuNZrhu"],["Indie Electronic 2026","4FXefsd5hOARyPtewzti8T"],
+    ["Alt Girl 2026","4eS1whE4S3x9B7zd8elM2H"],["Ghettotech 2026","6YKr6jHn9oa9r0Qvc3Euhh"],["Underground Rap 2026","5vAtuvsFix3dSnlS66il7A"],
+    ["Dream Pop 2026","2UwJEiVoProdObm5tFRGnZ"],["Detroit Rap 2026","6k28qCwhvTB1OnAESCbKc2"],["Late Night Drive 2026","5M28t8Ks8RCssiGX6fBVHn"],
+    ["Baltimore Rap 2026","7lqAw33hqryHjIhIrs9w8s"],["ATL Swag Era 2026","7Atc2JqhG3yp5EP82PCZou"],["Amapiano x Afrobeats 2026","5kZjwB5ib9w1toXXw7nTSd"],
+    ["Afro House Beach 2026","6LwPOSz4bRiMi1NAtR3WZ3"],["ADHD Focus Music 2026","19t6ug1MzQkkTHwmYP0v21"],["Morning Coffee Music 2026","6wzNL6SY7NjENR67lv5Fvv"],
+    ["Dinner Party Music 2026","6ae47YlML0yhY3tcIW7v0U"],["Summer Deep House 2026","4gV2MtfGrfvFkI4cycC29C"],["Melodic Techno 2026","60OMYOEbS7imFoC1A0zruL"],
+    ["Ibiza House 2026","1EzlzO5SKfMhPnlizhynbs"],["House Music 2026","1ZNDUoQYZeNI8JhLKN3gNx"],["Chill Deep House 2026","0daBTQP1RqjDX4FVzjaZ2L"],
+    ["Jersey Club Remixes 2026","5Eytc4yleu3zKOT5Bcjlh8"],["Baltimore Club Music","1JLoes5gVqCUR9v7j0tw7u"],["Brazilian Phonk 2026","387hT5XQUZwnGEwkpdhUEe"],
+    ["Deep House 2026","6LaZ4bcXoyVqQrBcnXywE5"],["Beach House Music 2026","3v6H68tcpQfrmwcehtwAsz"],["Afro House 2026","0SZX5CbDxd7BCcd1ffP03K"],
+    ["Night Drive Techno 2026","6DWj7pULJBkNGJggzxIjEM"],["Gym Phonk 2026","4ra0bsg4GMRKOCAirw0EXp"],["Synthwave 2026","1bXWNYEDKMr5kvqCyrOC3D"]
+  ].map(([n, id]) => [n, SP + id])},
+  substacks: {title: "SUBSTACKS", start: 201, verb: "READ", items: [
+    ["krushclub and odecore: a rave inside the internet", "https://alilbitloudernow.substack.com/p/krushclub-and-odecore-a-rave-inside"],
+    ["sigilkore, slowed down: music for the focus part", "https://alilbitloudernow.substack.com/p/sigilkore-slowed-down-music-for-the"],
+    ["the house edge is a clock: how long it takes the math to find you", "https://moneysexnerd.substack.com/p/the-house-edge-is-a-clock-how-long"],
+    ["ghettotech: fast, filthy and funny on purpose", "https://alilbitloudernow.substack.com/p/ghettotech-fast-filthy-and-funny"],
+    ["detroit techno: machine music with soul in it", "https://alilbitloudernow.substack.com/p/detroit-techno-machine-music-with"],
+    ["jersey club: songs you already know, made to bounce", "https://alilbitloudernow.substack.com/p/jersey-club-songs-you-already-know"],
+    ["music is the best high in baltimore", "https://alilbitloudernow.substack.com/p/music-is-the-best-high-in-baltimore"],
+    ["the kink scene starts to take shape", "https://alilbitloudernow.substack.com/p/the-kink-scene-starts-to-take-shape"],
+    ["how the freaks found each other before the internet", "https://alilbitloudernow.substack.com/p/how-the-freaks-found-each-other-before"],
+    ["heterosexual used to mean something freaky too", "https://alilbitloudernow.substack.com/p/heterosexual-used-to-mean-something"],
+    ["all me to re-introduce myself (hov voice)...", "https://alilbitloudernow.substack.com/p/all-me-to-re-introduce-myself-hov"],
+    ["a ndidgo homecoming of sorts...", "https://alilbitloudernow.substack.com/p/a-ndidgo-homecoming-of-sorts"],
+    ["how i know Hue Money is wired differently", "https://alilbitloudernow.substack.com/p/how-i-know-hue-money-is-wired-differently"],
+    ["lil ndigo & the cracker jacks (pt. 1)", "https://alilbitloudernow.substack.com/p/lil-ndigo-and-the-cracker-jacks-pt"],
+    ["so my man is a Petty Spaghetti Monster & that makes me one too", "https://alilbitloudernow.substack.com/p/so-my-man-is-a-petty-spaghetti-monster"],
+    ["a gentrified Baltimore, a Typical behavior & Unsafe People", "https://alilbitloudernow.substack.com/p/a-gentrified-baltimore-a-typical"],
+    ["how to stand in Truth & Chaos at the samedamntime.", "https://alilbitloudernow.substack.com/p/how-to-stand-in-truth-and-chaos-at"],
+    ["chaosmagick sluts", "https://alilbitloudernow.substack.com/p/chaosmagick-sluts"],
+    ["i robbed houses as 12 year old, autistically.", "https://alilbitloudernow.substack.com/p/i-robbed-houses-as-12-year-old-autistically"],
+    ["how to be a magical medium with a message on Substack.", "https://alilbitloudernow.substack.com/p/how-to-be-a-magical-medium-with-a"],
+    ["rescuing the lost goddesses...", "https://alilbitloudernow.substack.com/p/rescuing-the-lost-goddesses"],
+    ["the eros of Siddhartha", "https://alilbitloudernow.substack.com/p/the-eros-of-siddhartha"],
+    ["Da Art of Storytelling Part 2", "https://alilbitloudernow.substack.com/p/da-art-of-storytelling-part-2"],
+    ["Chekhov's guns, a human named Abbey who is not my assistant & madmen", "https://alilbitloudernow.substack.com/p/chekhovs-guns-a-human-named-abbey"]]},
+  videos: {title: "YOUTUBE · @FRANKWHITEDEALSDOPE", start: 301, verb: "WATCH", items: [
+    ["A Frank Conversation: Is One Piece the GOAT? Was Wheel of Time on TV trash? Find out...", "https://www.youtube.com/watch?v=md55BARvbwo"]]},
+  social: {title: "SOCIAL", start: 401, items: [
+    ["Instagram @frankwhitedealsdope", "https://instagram.com/frankwhitedealsdope"],
+    ["TikTok @frankwhitedealsdope", "https://www.tiktok.com/@frankwhitedealsdope"],
+    ["X @frankwhitedeals", "https://x.com/frankwhitedeals"],
+    ["YouTube @frankwhitedealsdope", "https://www.youtube.com/@frankwhitedealsdope"]]}
+};
+const PER = 8, screen = document.querySelector(".screen"), list = document.getElementById("ttxList");
+const pager = document.getElementById("ttxPager"), pageLbl = document.getElementById("ttxPage");
+let tab = "playlists", page = 0;
+const esc = t => t.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+function renderTtx() {
+  const d = LINKS[tab], pages = Math.ceil(d.items.length / PER);
+  screen.dataset.tab = tab;
+  document.getElementById("ttxTitle").textContent = d.title;
+  list.setAttribute("aria-labelledby", "tab-" + tab);
+  list.innerHTML = d.items.slice(page * PER, page * PER + PER).map(([name, url], i) =>
+    `<li><a href="${url}" target="_blank" rel="noopener"><span class="p">${d.start + page * PER + i}</span>` +
+    `<span class="lane">${esc(name)}</span><span class="go">${d.verb || "OPEN"} ▶</span></a></li>`).join("");
+  pager.hidden = pages < 2;
+  pageLbl.textContent = `PAGE ${page + 1}/${pages}`;
+  pager.querySelector('[data-step="-1"]').disabled = page === 0;
+  pager.querySelector('[data-step="1"]').disabled = page >= pages - 1;
+  document.querySelectorAll('.ft [role="tab"]').forEach(b => b.setAttribute("aria-selected", b.dataset.tab === tab));
+}
+document.querySelector(".ft").addEventListener("click", e => {
+  const b = e.target.closest("[data-tab]"); if (!b) return;
+  tab = b.dataset.tab; page = 0; renderTtx();
+});
+pager.addEventListener("click", e => {
+  const b = e.target.closest("[data-step]"); if (!b) return;
+  page += Number(b.dataset.step); renderTtx();
+});
+renderTtx();
+
+document.querySelector(".track").addEventListener("animationend", e => e.target.remove());
+
+// tape counter: runs from 00:00:00 when the page loads
+const t0 = Date.now(), tc = [document.getElementById("tc")];
+const pad = n => String(n).padStart(2, "0");
+setInterval(() => {
+  const s = Math.floor((Date.now() - t0) / 1000);
+  const v = `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
+  tc.forEach(el => el.textContent = v);
+}, 1000);
+
+// Forms. Pager messages email frank@ through FormSubmit. List signups go to the Kit form once
+// KIT_FORM_ID is set; until then they email frank@ too, so nothing is lost.
+const KIT_FORM_ID = "";
+const RELAY = "https://formsubmit.co/ajax/frank@frankwhitedealsdope.com";
+const relay = data => fetch(RELAY, {method: "POST", headers: {"Content-Type": "application/json", Accept: "application/json"},
+  body: JSON.stringify({_template: "table", _captcha: "false", ...data})}).then(r => r.json()).then(j => {
+    if (String(j.success) !== "true") throw new Error(j.message || "relay failed"); });
+const kit = email => fetch(`https://app.kit.com/forms/${KIT_FORM_ID}/subscriptions`, {method: "POST",
+  headers: {"Content-Type": "application/json", Accept: "application/json"},
+  body: JSON.stringify({email_address: email})}).then(r => { if (!r.ok) throw new Error("kit " + r.status); });
+
+const joinForm = document.getElementById("joinForm"), joinMsg = document.getElementById("joinMsg");
+joinForm.addEventListener("submit", e => {
+  e.preventDefault();
+  const email = joinForm.email, btn = joinForm.querySelector("button");
+  if (!email.value.trim() || !email.checkValidity()) {
+    joinMsg.className = "msg err";
+    joinMsg.textContent = "TRACKING ERROR: that email doesn't look right. Check it and press Join.";
+    email.focus();
+    return;
+  }
+  btn.disabled = true; joinMsg.className = "msg"; joinMsg.textContent = "REC ● saving…";
+  const v = email.value.trim();
+  (KIT_FORM_ID ? kit(v) : relay({_subject: "FWD list signup", email: v, list: "Join the list"}))
+    .then(() => {
+      joinMsg.className = "msg ok";
+      joinMsg.innerHTML = 'You’re on the list. <span class="caret"></span>';
+      joinForm.reset();
+    })
+    .catch(() => {
+      joinMsg.className = "msg err";
+      joinMsg.textContent = "TAPE JAM: that didn't go through. Press Join to try again.";
+    })
+    .finally(() => { btn.disabled = false; });
+});
+
+const sendForm = document.getElementById("sendForm"), sendMsg = document.getElementById("sendMsg");
+sendForm.addEventListener("submit", e => {
+  e.preventDefault();
+  let first = null;
+  sendForm.querySelectorAll(".field").forEach(f => {
+    const el = f.querySelector("input,textarea"), bad = !el.value.trim() || !el.checkValidity();
+    f.classList.toggle("bad", bad);
+    el.setAttribute("aria-invalid", bad);
+    if (bad && !first) first = el;
+  });
+  if (first) { first.focus(); sendMsg.textContent = ""; return; }
+  const btn = sendForm.querySelector("button");
+  btn.disabled = true; sendMsg.textContent = "Paging…";
+  relay({_subject: "FWD pager: " + sendForm.name.value.trim(), _replyto: sendForm.contact.value.trim(),
+         name: sendForm.name.value.trim(), email: sendForm.contact.value.trim(), message: sendForm.message.value.trim()})
+    .then(() => { sendMsg.textContent = "Message received."; sendForm.reset(); })
+    .catch(() => { sendMsg.textContent = "PAGER DOWN: that didn't send. Press Connect to try again."; })
+    .finally(() => { btn.disabled = false; });
+});
+</script>
+</body>
+</html>
